@@ -5,7 +5,7 @@ load_dotenv()
 
 def generate_email(subject, tone):
     llm = OpenAI(temperature=0.5)
-    prompt_template_name = PromptTemplate(input_variables=["subject", "tone"], template="generate a brief e-mail on the subject {subject} and make sure the tone is {tone} in 20 line only")
+    prompt_template_name = PromptTemplate(input_variables=["subject", "tone"], template="generate a brief e-mail on the subject {subject} and make sure the tone is {tone} in 2 line only")
 
     name_chain = LLMChain(llm=llm, prompt=prompt_template_name, output_key="text")
 
@@ -13,5 +13,5 @@ def generate_email(subject, tone):
     return response
 
 if __name__ == "__main__":
-    result = generate_email("email to the boss for not attending the meeting", "american english")
+    result = generate_emails("email to the boss for not attending the meeting", "american english")
     print(result)
