@@ -13,5 +13,5 @@ def generate_email(subject, tone):
     return response
 
 if __name__ == "__main__":
-    result = generate_emails("email to the boss for not attending the meeting", "american english")
+    result = generate_email("email to the boss for not attending the meeting", "american english")
     print(result)
