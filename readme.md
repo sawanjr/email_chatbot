@@ -35,3 +35,25 @@ Before using the Email Generator, you need to have Python and a few dependencies
 2. Create a `.env` file with your OpenAI API key and any other necessary environment variables. You can use the provided `.env.example` as a template.
 
 3. Run the Streamlit application:
+
+
+4. Access the Email Generator in your web browser at the provided URL (usually `http://localhost:8501`).
+
+5. Enter the subject and choose the tone for your email, then click the "Generate Email" button to see the generated content.
+
+## Developer Information
+
+This Email Generator project is maintained by Sawan Kumar, a passionate explorer of machine learning and Large Language Models. You can connect with the developer via:
+
+- [GitHub](https://github.com/sawanjr)
+- [LinkedIn](https://www.linkedin.com/in/sawan-kumar-bb8793243)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- OpenAI for providing the GPT-3 model, enabling innovative language generation applications.
+- Streamlit for simplifying the creation of interactive web applications.
+- The open-source community for contributing to the tools and libraries used in this project.
