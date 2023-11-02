@@ -37,7 +37,7 @@ tone = st.selectbox("Select your tone", ("Formal", "Informal", "Friendly", "Auth
 # Generate email on button click
 if st.button("Generate Email"):
     if tone:
-        response = li.generate_emails(subject, tone)
+        response = li.generate_email(subject, tone)
         st.subheader("this is how you chooseed your email to be :")
         st.write(f"Subject: {subject}")
         st.write(f"Tone: {tone}")
