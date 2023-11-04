@@ -2,10 +2,16 @@
 # from dotenv import load_dotenv
 
 # load_dotenv()
+from langchain import PromptTemplate
+import openai  # Import the openai module
+# from dotenv import load_dotenv
+
+# load_dotenv()
 OPENAI_API_KEY = "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"
+
 def generate_email(subject, tone):
-    llm = OpenAI(temperature=0.5)
-    prompt_template_name = PromptTemplate(input_variables=["subject", "tone"], template="generate a brief e-mail on the subject {subject} and make sure the tone is {tone} in 2 line only")
+    llm = openai.ChatCompletion.create(temperature=0.5, max_tokens=50, top_p=1, frequency_penalty=0, stop=None, engine="gpt-3.5-turbo", max_responses=1)
+    prompt_template_name = PromptTemplate(input_variables=["subject", "tone"], template="generate a brief e-mail on the subject {subject} and make sure the tone is {tone} in 5 lines only")
 
     name_chain = LLMChain(llm=llm, prompt=prompt_template_name, output_key="text")
 
