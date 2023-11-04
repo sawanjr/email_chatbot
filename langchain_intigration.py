@@ -2,7 +2,7 @@ from langchain import PromptTemplate, OpenAI, LLMChain
 import openai
 
 def generate_email(subject, tone):
-    api_key = "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"  # Replace with your actual OpenAI API key
+    api_key = "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"  # Replace with your actual OpenAI API key
     llm = openai.ChatCompletion.create(
         temperature=0.5,
         max_tokens=50,
