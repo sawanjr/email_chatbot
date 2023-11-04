@@ -48,6 +48,6 @@ if st.button("Generate Email"):
 with st.sidebar:
     st.title("Developer Information")
     st.markdown("Meet Sawan: A Passionate Explorer of machine learning and LLM ")
-    st.markdown("Allow me to introduce you to Sawan, a dynamic individual who has a deep passion for large language modelsx . In the world of AI and language models ")
+    st.markdown("Allow me to introduce you to Sawan, a dynamic individual who has a deep passion for large language models .")
     st.markdown("[GitHub](https://github.com/sawanjr)")
     st.markdown("[LinkedIn](https://www.linkedin.com/in/sawan-kumar-bb8793243)")
