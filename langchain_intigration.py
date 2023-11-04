@@ -1,8 +1,8 @@
-from langchain import PromptTemplate, OpenAI, LLMChain
-from dotenv import load_dotenv
+# from langchain import PromptTemplate, OpenAI, LLMChain
+# from dotenv import load_dotenv
 
-load_dotenv()
-
+# load_dotenv()
+OPENAI_API_KEY = "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"
 def generate_email(subject, tone):
     llm = OpenAI(temperature=0.5)
     prompt_template_name = PromptTemplate(input_variables=["subject", "tone"], template="generate a brief e-mail on the subject {subject} and make sure the tone is {tone} in 2 line only")
