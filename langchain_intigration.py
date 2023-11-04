@@ -1,10 +1,8 @@
-# from langchain import PromptTemplate, OpenAI, LLMChain
-# from dotenv import load_dotenv
-
-# load_dotenv()
+from langchain import PromptTemplate, OpenAI, LLMChain
+from dotenv import load_dotenv
 from langchain import PromptTemplate
 import openai  # Import the openai module
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 # load_dotenv()
 OPENAI_API_KEY = "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"
