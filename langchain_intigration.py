@@ -1,17 +1,21 @@
-from langchain import PromptTemplate, OpenAI, LLMChain
+from langchain import PromptTemplate, LLMChain
 import openai
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env
+load_dotenv()
+
+# Access your OpenAI API key from the environment variables
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 def generate_email(subject, tone):
-    api_key = "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"  # Replace with your actual OpenAI API key
+    # Initialize OpenAI with your API key
+    openai.api_key = OPENAI_API_KEY
+
     llm = openai.ChatCompletion.create(
-        temperature=0.5,
-        max_tokens=50,
-        top_p=1,
-        frequency_penalty=0,
-        stop=None,
-        engine="gpt-3.5-turbo",
-        max_responses=1,
-        api_key=api_key  # Manually set your API key
+        temperature=0.5, max_tokens=50, top_p=1, frequency_penalty=0,
+        stop=None, engine="gpt-3.5-turbo", max_responses=1
     )
     prompt_template_name = PromptTemplate(
         input_variables=["subject", "tone"],
