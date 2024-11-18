@@ -2,13 +2,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from langchain_core.prompts import ChatPromptTemplate
 import os
-from dotenv import load_dotenv
 
-# Load environment variables from .env
-load_dotenv()
-
-# Access your Gemini API key from the environment variables
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+# Store the Gemini API key directly in the script
+GEMINI_API_KEY = "AIzaSyAidAGbyMSnpDEsNk78aOjH2uHKzRz2PrA"  # Replace with your actual API key
 
 def generate_email(subject, tone):
     # Initialize the LangChain LLM with Google Generative AI
@@ -35,7 +31,7 @@ def generate_email(subject, tone):
 
     # Invoke the chain
     response = chain.invoke({"subject": subject, "tone": tone})
-    return response.content  # Only return the main content
+    return response.content  # Only return the main content (email body)
 
 if __name__ == "__main__":
     result = generate_email(
