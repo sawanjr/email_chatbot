@@ -33,8 +33,8 @@ def generate_email(subject, tone):
     response = chain.invoke({"subject": subject, "tone": tone})
     return response.content  # Only return the main content (email body)
 
-if __name__ == "__main__":
-    result = generate_email(
-        subject="email to the boss for not attending the meeting", tone="professional"
-    )
-    print(result)
+# if __name__ == "__main__":
+    # result = generate_email(
+    #     subject="email to the boss for not attending the meeting", tone="professional"
+    # )
+    # print(result)
