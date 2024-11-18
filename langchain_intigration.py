@@ -1,32 +1,44 @@
-from langchain import PromptTemplate, LLMChain
-import openai
-from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.prompts import PromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 import os
+from dotenv import load_dotenv
 
 # Load environment variables from .env
 load_dotenv()
 
-# Access your OpenAI API key from the environment variables
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+# Access your Gemini API key from the environment variables
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 def generate_email(subject, tone):
-    # Initialize OpenAI with your API key
-    openai.api_key = OPENAI_API_KEY
-
-    llm = openai.ChatCompletion.create(
-        temperature=0.5, max_tokens=50, top_p=1, frequency_penalty=0,
-        stop=None, engine="gpt-3.5-turbo", max_responses=1
-    )
-    prompt_template_name = PromptTemplate(
-        input_variables=["subject", "tone"],
-        template="generate a brief e-mail on the subject {subject} and make sure the tone is {tone} in 5 lines only"
+    # Initialize the LangChain LLM with Google Generative AI
+    llm = ChatGoogleGenerativeAI(
+        api_key=GEMINI_API_KEY,
+        model="gemini-1.5-pro",
+        temperature=0,
+        max_tokens=None
     )
 
-    name_chain = LLMChain(llm=llm, prompt=prompt_template_name, output_key="text")
+    # Define the prompt template
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                "You are a helpful assistant that writes an email with the subject '{subject}' in a '{tone}' tone.",
+            ),
+            ("human", "Generate the email."),
+        ]
+    )
 
-    response = name_chain({"subject": subject, "tone": tone})
-    return response
+    # Combine the prompt with the LLM
+    chain = prompt | llm
+
+    # Invoke the chain
+    response = chain.invoke({"subject": subject, "tone": tone})
+    return response.content  # Only return the main content
 
 if __name__ == "__main__":
-    result = generate_email("email to the boss for not attending the meeting", "american english")
+    result = generate_email(
+        subject="email to the boss for not attending the meeting", tone="professional"
+    )
     print(result)
