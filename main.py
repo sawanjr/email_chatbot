@@ -144,7 +144,7 @@ st.write("Generate emails with your preferred tone and subject.")
 
 # User Inputs on the main screen
 st.subheader("Your Inputs")
-subject = st.text_input("What is your subject?", max_chars=30, help="Enter your email subject here")
+subject = st.text_input("What is your subject?", max_chars=80, help="Enter your email subject here")
 tone = st.selectbox("Select your tone", 
                     ("Formal", "Informal", "Friendly", "Authoritative", "Sympathetic", "Confident", "Humble", 
                      "Casual", "Professional", "Sarcastic or Humorous", "Motivational"), 
